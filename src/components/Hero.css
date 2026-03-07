@@ -1,0 +1,46 @@
+.hero {
+  padding-top: 150px;
+}
+
+.hero h4 {
+  font-size: 1.1rem;
+  letter-spacing: 5px; 
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero h1, .name-heading {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 1rem;
+  letter-spacing: -0.04em;
+  display: block;
+}
+
+.encrypted {
+  color: var(--text-muted);
+  opacity: 0.5;
+  font-family: monospace;
+}
+
+.revealed {
+  color: var(--accent);
+}
+
+.hero h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--text-muted);
+  border: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero p {
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}

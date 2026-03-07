@@ -1,0 +1,31 @@
+.quick-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem; 
+  row-gap: 2rem; 
+  margin-bottom: 3rem;
+}
+
+.info-item span {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+  letter-spacing: 1px;
+}
+
+.info-item p {
+  font-weight: 700; 
+  color: var(--text-main); 
+  font-size: 1.2rem;
+}
+
+.resume-intro {
+  margin-bottom: 3rem;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 1.5rem;
+}
