@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import SpotlightCard from './animations/SpotlightCard';
+import projectPreview from '../assets/todos-preview.png';
 import './Projects.css';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -10,7 +11,7 @@ const projects = [
   {
     title: "Awesome Todo's App",
     description: "A full-stack task management application with a decoupled client-server architecture. Features a clean user interface and persistent data storage.",
-    image: "todos-preview.png",
+    image: projectPreview,
     github: "https://github.com/JeffGentapanan/awesometodosapp.git",
     link: "https://awesometodosapp-otag.onrender.com",
     tags: ["React", "Vite", "Node.js", "Express", "JavaScript", "HTML/CSS"]
