@@ -13,11 +13,37 @@
   border-bottom: 1px solid var(--border);
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .logo {
   font-weight: 900;
   text-decoration: none;
   color: #fff;
   letter-spacing: 2px;
+}
+
+.github-link {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #fff;
 }
 
 .nav ul {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FaGithub } from 'react-icons/fa';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -29,9 +30,20 @@ const Header: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container">
-        <a href="/" className="logo">
-          <span>JEFF</span>.GENTAPANAN
-        </a>
+        <div className="logo-section">
+          <a href="/" className="logo">
+            <span>JEFF</span>.GENTAPANAN
+          </a>
+          <a 
+            href="https://github.com/JeffGentapanan/MY_PORTFOLIO.git" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="github-link"
+            title="View Source on GitHub"
+          >
+            <FaGithub size={20} />
+          </a>
+        </div>
 
         <nav className="nav">
           <ul>

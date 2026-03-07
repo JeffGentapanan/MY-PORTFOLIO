@@ -36,7 +36,7 @@ const Resume: React.FC = () => {
           </div>
           <div className="info-item">
             <span>Education:</span>
-            <p>Western Institute of Technology</p>
+            <p>BSIT in Western Institute of Technology</p>
           </div>
           <div className="info-item">
             <span>Birthday:</span>
