@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Awesome Todo's App",
     description: "A full-stack task management application with a decoupled client-server architecture. Features a clean user interface and persistent data storage.",
-    image: "/todos-preview.png",
+    image: "todos-preview.png",
     github: "https://github.com/JeffGentapanan/awesometodosapp.git",
     link: "https://awesometodosapp-otag.onrender.com",
     tags: ["React", "Vite", "Node.js", "Express", "JavaScript", "HTML/CSS"]
