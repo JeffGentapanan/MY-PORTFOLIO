@@ -1,0 +1,54 @@
+===========================================================================
+                          JEFF GENTAPANAN
+===========================================================================
+Address: Igcocolo, Guimbal, Iloilo
+Phone:   09276886821
+Email:   jeff.gentapanan2004525@gmail.com
+Birthday: May 25, 2004
+---------------------------------------------------------------------------
+LINKS:
+LinkedIn: https://www.linkedin.com/in/jeff-gentapanan-4b76b8370/
+GitHub:   https://github.com/JeffGentapanan
+===========================================================================
+
+OBJECTIVE
+---------
+Passionate Information Technology student at Western Institute of Technology
+dedicated to building modern, high-performance web experiences and 
+continuously learning new technologies.
+
+EDUCATION
+---------
+Western Institute of Technology
+Bachelor of Science in Information Technology
+Current Student
+
+CORE SKILLS
+-----------
+FRONTEND DEVELOPMENT:
+- HTML5 & CSS3
+- JavaScript (ES6+)
+- React.js
+- Responsive & Modern UI Design
+
+PROGRAMMING & DATABASES:
+- Java
+- Python
+- C++
+- SQL (Database Management)
+
+TOOLS & SOFTWARE:
+- Git & GitHub
+- Visual Studio Code
+- WPS Office / MS Office
+- Figma (Basic Design)
+
+PERSONAL PROJECTS
+-----------------
+(Examples you can add details to later)
+- Personal Portfolio Website (React, Framer Motion)
+- Academic Programming Projects (Java, C++)
+
+===========================================================================
+(This file is structured to be professional. You can open it in WPS Office, 
+adjust the formatting, and save it as a PDF or .docx for job applications!)
