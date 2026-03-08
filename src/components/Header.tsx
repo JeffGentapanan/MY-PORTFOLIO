@@ -31,7 +31,7 @@ const Header: React.FC = () => {
     >
       <div className="container">
         <div className="logo-section">
-          <a href="/" className="logo">
+          <a href="#about" className="logo">
             <span>JEFF</span>.GENTAPANAN
           </a>
           <a 
