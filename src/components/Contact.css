@@ -43,3 +43,21 @@
   outline: none;
   border-color: var(--accent);
 }
+
+/* --- ADDED BY ME: Status Message Styles --- */
+.success-msg {
+  color: #4CAF50;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.error-msg {
+  color: #f44336;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

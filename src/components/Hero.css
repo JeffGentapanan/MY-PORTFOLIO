@@ -10,6 +10,22 @@
   text-transform: uppercase;
 }
 
+/* --- ADDED BY ME: PROFILE IMAGE STYLES --- */
+.hero-image-container {
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.hero-profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+}
+/* --- END OF PROFILE IMAGE STYLES --- */
+
 .hero h1, .name-heading {
   font-size: clamp(3rem, 10vw, 6rem);
   font-weight: 900;

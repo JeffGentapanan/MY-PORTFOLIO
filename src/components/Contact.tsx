@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaLinkedin } from 'react-icons/fa';
 import './Contact.css';
@@ -6,6 +6,39 @@ import './Contact.css';
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const Contact: React.FC = () => {
+  // --- ADDED BY ME: FORM STATE ---
+  const [status, setStatus] = useState<'IDLE' | 'SUBMITTING' | 'SUCCESS' | 'ERROR'>('IDLE');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    
+    setStatus('SUBMITTING');
+
+    try {
+      // --- EMAIL INTEGRATION CHANGE: Using FormSubmit for direct delivery ---
+      const response = await fetch('https://formsubmit.co/ajax/jeff.gentapanan2004525@gmail.com', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      // --- END EMAIL INTEGRATION CHANGE ---
+
+      if (response.ok) {
+        setStatus('SUCCESS');
+        form.reset();
+      } else {
+        setStatus('ERROR');
+      }
+    } catch (error) {
+      setStatus('ERROR');
+    }
+  };
+  // --- END OF ADDED SECTION ---
+
   return (
     <section id="contact">
       <motion.h2 
@@ -36,23 +69,35 @@ const Contact: React.FC = () => {
         </motion.div>
 
         <motion.form 
+          // --- MODIFIED BY ME: Formspree Integration ---
           className="contact-form"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease, delay: 0.2 }}
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
         >
           <div className="form-group">
-            <input type="text" placeholder="Name" required />
+            <input type="text" name="name" placeholder="Name" required />
           </div>
           <div className="form-group">
-            <input type="email" placeholder="Email" required />
+            <input type="email" name="email" placeholder="Email" required />
           </div>
           <div className="form-group">
-            <textarea placeholder="Message" rows={5} required></textarea>
+            <textarea name="message" placeholder="Message" rows={5} required></textarea>
           </div>
-          <button type="submit" className="btn">Send Message</button>
+          
+          {/* --- ADDED BY ME: Status Message --- */}
+          {status === 'SUCCESS' && <p className="success-msg">Message sent successfully!</p>}
+          {status === 'ERROR' && <p className="error-msg">Something went wrong. Please try again.</p>}
+          
+          <button 
+            type="submit" 
+            className="btn" 
+            disabled={status === 'SUBMITTING'}
+          >
+            {status === 'SUBMITTING' ? 'Sending...' : 'Send Message'}
+          </button>
         </motion.form>
       </div>
     </section>

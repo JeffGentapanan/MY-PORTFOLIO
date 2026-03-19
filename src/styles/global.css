@@ -6,6 +6,7 @@ html {
   --bg: #000000;
   --bg-card: #0a0a0a;
   --accent: #ffffff;
+  --accent-rgb: 255, 255, 255;
   --text-main: #ffffff;
   --text-muted: #888888;
   --border: rgba(255, 255, 255, 0.1);
