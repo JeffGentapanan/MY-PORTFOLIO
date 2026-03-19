@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import DecryptedText from './animations/DecryptedText';
 import Magnet from './animations/Magnet';
 import './Hero.css';
-// --- ADDED BY ME: Import profile image ---
 import profileImg from '../assets/profile.jpg';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -20,7 +19,6 @@ const Hero: React.FC = () => {
           Hi, my name is
         </motion.h4>
 
-        {/* --- ADDED BY ME: PROFILE IMAGE --- */}
         <motion.div
           className="hero-image-container"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -29,7 +27,6 @@ const Hero: React.FC = () => {
         >
           <img src={profileImg} alt="Jeff Gentapanan" className="hero-profile-img" />
         </motion.div>
-        {/* --- END OF PROFILE IMAGE --- */}
 
         <Magnet padding={100} magnetStrength={10}>
           <h1 className="name-heading" style={{ cursor: 'default' }}>

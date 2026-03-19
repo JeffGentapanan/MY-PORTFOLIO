@@ -6,7 +6,6 @@ import './Contact.css';
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const Contact: React.FC = () => {
-  // --- ADDED BY ME: FORM STATE ---
   const [status, setStatus] = useState<'IDLE' | 'SUBMITTING' | 'SUCCESS' | 'ERROR'>('IDLE');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +16,6 @@ const Contact: React.FC = () => {
     setStatus('SUBMITTING');
 
     try {
-      // --- EMAIL INTEGRATION CHANGE: Using FormSubmit for direct delivery ---
       const response = await fetch('https://formsubmit.co/ajax/jeff.gentapanan2004525@gmail.com', {
         method: 'POST',
         body: data,
@@ -25,7 +23,6 @@ const Contact: React.FC = () => {
           'Accept': 'application/json'
         }
       });
-      // --- END EMAIL INTEGRATION CHANGE ---
 
       if (response.ok) {
         setStatus('SUCCESS');
@@ -37,7 +34,6 @@ const Contact: React.FC = () => {
       setStatus('ERROR');
     }
   };
-  // --- END OF ADDED SECTION ---
 
   return (
     <section id="contact">
@@ -69,7 +65,6 @@ const Contact: React.FC = () => {
         </motion.div>
 
         <motion.form 
-          // --- MODIFIED BY ME: Formspree Integration ---
           className="contact-form"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +82,6 @@ const Contact: React.FC = () => {
             <textarea name="message" placeholder="Message" rows={5} required></textarea>
           </div>
           
-          {/* --- ADDED BY ME: Status Message --- */}
           {status === 'SUCCESS' && <p className="success-msg">Message sent successfully!</p>}
           {status === 'ERROR' && <p className="error-msg">Something went wrong. Please try again.</p>}
           
