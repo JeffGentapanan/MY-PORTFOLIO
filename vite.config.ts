@@ -7,6 +7,7 @@ export default defineConfig({
   base: './',
   build: {
     outDir: 'dist',
+    chunkSizeWarningLimit: 2000,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -14,5 +15,5 @@ export default defineConfig({
         },
       },
     },
-  },
+  },  
 })
