@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaCode, FaTools, FaJs, FaCss3Alt, FaHtml5, FaReact, 
-  FaGithub, FaBook, FaServer, FaFilePdf, FaFigma, FaDatabase
+  FaGithub, FaBook, FaServer, FaFilePdf, FaFigma
 } from 'react-icons/fa';
 import { SiTypescript, SiFramer, SiVite, SiMongodb } from 'react-icons/si';
 import TiltCard from './animations/TiltCard';
