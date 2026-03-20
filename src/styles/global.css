@@ -89,6 +89,14 @@ p {
   font-size: 0.8rem;
   display: inline-block;
   transition: opacity 0.3s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn.outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
 .btn:hover {

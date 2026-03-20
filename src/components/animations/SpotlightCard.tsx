@@ -59,7 +59,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
           background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 40%)`,
         }}
       />
-      <div style={{ position: 'relative', zIndex: 10 }}>{children}</div>
+      <div style={{ position: 'relative', zIndex: 10, height: '100%', display: 'flex', flexDirection: 'column' }}>{children}</div>
     </div>
   );
 };

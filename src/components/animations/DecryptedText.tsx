@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 interface DecryptedTextProps {
@@ -12,7 +12,7 @@ interface DecryptedTextProps {
   animateOn?: 'view' | 'hover' | 'both';
 }
 
-const DecryptedText = ({
+const DecryptedText = React.memo(({
   text,
   speed = 50,
   maxIterations = 10,
@@ -25,41 +25,55 @@ const DecryptedText = ({
 }: DecryptedTextProps) => {
   const [displayText, setDisplayText] = useState(text);
   const [isHovering, setIsHovering] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const isAnimatingRef = useRef(false);
+  const hasAnimatedRef = useRef(false);
   const containerRef = useRef<HTMLSpanElement>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
+  const startScrambling = useCallback(() => {
+    if (isAnimatingRef.current) return;
+    isAnimatingRef.current = true;
+
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    let iteration = 0;
+    
+    intervalRef.current = setInterval(() => {
+      setDisplayText(() =>
+        text
+          .split("")
+          .map((char, index) => {
+            if (char === " ") return " ";
+            
+            // Calculate when this specific character should start resolving
+            const revealAt = Math.floor((index / text.length) * maxIterations);
+            
+            if (iteration >= revealAt + 3) { // +3 adds a nice overlap/delay
+              return text[index];
+            }
+
+            const availableChars = useOriginalCharsOnly ? text : letters;
+            return availableChars[Math.floor(Math.random() * availableChars.length)];
+          })
+          .join("")
+      );
+
+      iteration++;
+      if (iteration >= maxIterations + 5) { // Ensure all characters have time to resolve
+        setDisplayText(text);
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        isAnimatingRef.current = false;
+      }
+    }, speed);
+  }, [text, speed, maxIterations, useOriginalCharsOnly]);
+
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval>;
-    let currentIteration = 0;
-
-    const startScrambling = () => {
-      interval = setInterval(() => {
-        setDisplayText(() =>
-          text
-            .split("")
-            .map((char) => {
-              if (char === " ") return " ";
-              const availableChars = useOriginalCharsOnly ? text : letters;
-              return availableChars[Math.floor(Math.random() * availableChars.length)];
-            })
-            .join("")
-        );
-
-        currentIteration++;
-        if (currentIteration >= maxIterations) {
-          setDisplayText(text);
-          clearInterval(interval);
-        }
-      }, speed);
-    };
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && animateOn === 'view' && !hasAnimated) {
+        if (entry.isIntersecting && (animateOn === 'view' || animateOn === 'both') && !hasAnimatedRef.current) {
           startScrambling();
-          setHasAnimated(true);
+          hasAnimatedRef.current = true;
         }
       },
       { threshold: 0.1 }
@@ -69,15 +83,17 @@ const DecryptedText = ({
       observer.observe(containerRef.current);
     }
 
-    if (animateOn === 'hover' && isHovering) {
+    return () => {
+      observer.disconnect();
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [animateOn, startScrambling]);
+
+  useEffect(() => {
+    if ((animateOn === 'hover' || animateOn === 'both') && isHovering) {
       startScrambling();
     }
-
-    return () => {
-      if (interval) clearInterval(interval);
-      observer.disconnect();
-    };
-  }, [isHovering, text, speed, maxIterations, animateOn, hasAnimated, useOriginalCharsOnly]);
+  }, [isHovering, animateOn, startScrambling]);
 
   return (
     <motion.span
@@ -100,6 +116,6 @@ const DecryptedText = ({
       })}
     </motion.span>
   );
-};
+});
 
 export default DecryptedText;

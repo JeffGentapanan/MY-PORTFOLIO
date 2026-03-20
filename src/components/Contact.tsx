@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
           <p>I'm always open to new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
           <ul className="contact-details">
             <li><FaEnvelope /> jeff.gentapanan2004525@gmail.com</li>
-            <li><FaPhoneAlt /> 09276886821</li>
+            <li><FaPhoneAlt style={{ transform: 'scaleX(-1)' }} /> 09276886821</li>
             <li><FaLinkedin /> <a href="https://www.linkedin.com/in/jeff-gentapanan-4b76b8370/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
             <li><FaMapMarkerAlt /> Philippines</li>
           </ul>

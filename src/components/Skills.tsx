@@ -1,12 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  FaCode, FaTools, FaReact, FaIcons, FaFilePdf, FaGithub, FaNpm 
+  FaCode, FaTools, FaJs, FaCss3Alt, FaHtml5, FaReact, 
+  FaGithub, FaBook, FaServer, FaFilePdf, FaFigma, FaDatabase
 } from 'react-icons/fa';
-import { 
-  SiTypescript, SiJavascript, SiCss3, SiHtml5, SiVite, SiFramer, SiEslint 
-} from 'react-icons/si';
-import { VscCode } from 'react-icons/vsc';
+import { SiTypescript, SiFramer, SiVite, SiMongodb } from 'react-icons/si';
 import TiltCard from './animations/TiltCard';
 import './Skills.css';
 
@@ -17,20 +15,19 @@ const skillCategories = [
     title: 'Languages',
     icon: <FaCode />,
     skills: [
+      { name: 'JavaScript (ES6+)', icon: <FaJs /> },
       { name: 'TypeScript', icon: <SiTypescript /> },
-      { name: 'JavaScript', icon: <SiJavascript /> },
-      { name: 'CSS3', icon: <SiCss3 /> },
-      { name: 'HTML5', icon: <SiHtml5 /> }
+      { name: 'HTML5 (Semantic)', icon: <FaHtml5 /> },
+      { name: 'CSS3 (Modern)', icon: <FaCss3Alt /> }
     ]
   },
   {
     title: 'Libraries',
-    icon: <FaReact />,
+    icon: <FaBook />,
     skills: [
       { name: 'React 19', icon: <FaReact /> },
+      { name: 'Node.js & Express', icon: <FaServer /> },
       { name: 'Framer Motion', icon: <SiFramer /> },
-      { name: 'React Bits', icon: <FaCode style={{ opacity: 0.7 }} /> },
-      { name: 'React Icons', icon: <FaIcons /> },
       { name: '@react-pdf', icon: <FaFilePdf /> }
     ]
   },
@@ -38,11 +35,10 @@ const skillCategories = [
     title: 'Tools',
     icon: <FaTools />,
     skills: [
-      { name: 'Vite', icon: <SiVite /> },
-      { name: 'npm', icon: <FaNpm /> },
-      { name: 'ESLint', icon: <SiEslint /> },
+      { name: 'Vite (Build Tool)', icon: <SiVite /> },
       { name: 'Git & GitHub', icon: <FaGithub /> },
-      { name: 'VS Code', icon: <VscCode /> }
+      { name: 'Figma (UI/UX)', icon: <FaFigma /> },
+      { name: 'MongoDB', icon: <SiMongodb /> }
     ]
   }
 ];
