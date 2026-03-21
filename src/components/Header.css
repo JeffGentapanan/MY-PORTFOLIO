@@ -65,3 +65,12 @@
 .nav a:hover { 
   color: #fff; 
 }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 5%;
+  }
+  .nav {
+    display: none;
+  }
+}
